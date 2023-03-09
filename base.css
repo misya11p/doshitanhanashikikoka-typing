@@ -14,3 +14,12 @@ body {
 #input-text {
     color: #ff0000;
 }
+
+#start-button {
+    display: block;
+    margin: 0 auto;
+}
+
+#count-down, #game, #result {
+    display: none;
+}

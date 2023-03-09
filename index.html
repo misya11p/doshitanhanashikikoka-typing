@@ -9,17 +9,18 @@
 </head>
 <body>
     <h1>どしたん？話聞こか？</h1>
-    <p>どしたん？話聞こか？をいかに早く打てるか競うゲームです。</p>
+    <p>どしたん？話聞こか？のタイピング速度を競うゲームです。</p>
     <p>タイピング速度を鍛え、ターゲットの女の子に1秒でも早くドシハナできるように頑張ってください。</p>
-    <button type="button" onclick="count_down();">スタート</button>
+    <button id="start-button" type="button" onclick="count_down();">スタート</button>
     <p id="count-down"></p>
-    <p id="time"></p>
     <div id="game">
+        <p id="time"></p>
         <p>どしたん？話聞こか？</p>
         <div id="progress">
             <p id="input-text" class="progress-text"></p>
             <p id="future-text" class="progress-text"></p>
         </div>
+        <button id="reset-button" type="button" onclick="reset();">辞める</button>
     </div>
     <div id="result">
         <p id="result-text"></p>

@@ -5,17 +5,45 @@ let inputText
 let futureText
 let inputTextElement = document.getElementById('input-text');
 let futureTextElement = document.getElementById('future-text');
+let startButtonElement = document.getElementById('start-button');
 const COUNT_DOWN_SEC = 3;
 let countDownTimerId;
-let timeElement = document.getElementById('time');
+let countDownElement = document.getElementById('count-down');
 let time;
+let gameElement = document.getElementById('game');
+let timeElement = document.getElementById('time');
 let timerId;
 let timeText;
-let resultElement = document.getElementById('result-text');
+let resultElement = document.getElementById('result');
+let resultTextElement = document.getElementById('result-text');
 let tweetButtonElement = document.getElementById('tweet-button');
 
 window.addEventListener('keydown', game);
+display_init()
 
+function display_init() {
+    startButtonElement.style.display = 'block';
+    countDownElement.style.display = 'none';
+    gameElement.style.display = 'none';
+    resultElement.style.display = 'none';
+}
+
+function display_countdown() {
+    startButtonElement.style.display = 'none';
+    countDownElement.style.display = 'block';
+    gameElement.style.display = 'none';
+    resultElement.style.display = 'none';
+}
+
+function display_game() {
+    countDownElement.style.display = 'none';
+    gameElement.style.display = 'block';
+}
+
+function display_result() {
+    gameElement.style.display = 'none';
+    resultElement.style.display = 'block';
+}
 
 function progress_update() {
     inputTextElement.textContent = inputText;
@@ -23,6 +51,7 @@ function progress_update() {
 }
 
 function count_down() {
+    display_countdown();
     clearInterval(timerId);
     clearInterval(countDownTimerId);
     time = 0;
@@ -44,6 +73,7 @@ function start() {
     inputText = '';
     futureText = 'dositan?hanasikikoka?';
     progress_update();
+    display_game();
     timer();
 }
 
@@ -92,8 +122,15 @@ function typing(key) {
     progress_update();
 }
 
+function reset () {
+    isPlaying = false;
+    clearInterval(timerId)
+    display_init();
+}
+
 function result() {
-    resultElement.textContent = '記録：' + timeText;
+    display_result();
+    resultTextElement.textContent = '記録：' + timeText;
     let tweetText = 'どしたん？話聞こか？を' + timeText + 'でタイピングしました';
-    tweetButtonElement.setAttribute("href","https://twitter.com/intent/tweet?text=" + tweetText + "&hashtags=ドシハナRTA" + "&url=https://rta.com");
+    tweetButtonElement.setAttribute("href", "https://twitter.com/intent/tweet?text=" + tweetText + "&hashtags=ドシハナRTA" + "&url=https://rta.com");
 }
