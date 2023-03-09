@@ -1,18 +1,63 @@
-console.log("doshitan?");
+console.log("コンソールなんて開いてどしたん?話聞こか？");
 
-
-let inputText = '';
-let futureText = 'dositan?hanasikikoka?';
+let isPlaying = false;
+let inputText
+let futureText
 let inputTextElement = document.getElementById('input-text');
 let futureTextElement = document.getElementById('future-text');
+const COUNT_DOWN_SEC = 3;
+let countDownTimerId;
+let timeElement = document.getElementById('time');
+let time;
+let timerId;
+
+window.addEventListener('keydown', game);
 
 
-progress_update();
-window.addEventListener('keydown', typing);
+function count_down() {
+    clearInterval(timerId);
+    clearInterval(countDownTimerId);
+    time = 0;
+    let count = COUNT_DOWN_SEC;
+    let countDownElement = document.getElementById('count-down');
+    countDownElement.textContent = count;
+    countDownTimerId = setInterval(() => {
+        count--;
+        if (count == 0) {
+            clearInterval(countDownTimerId);
+            start();
+        }
+        countDownElement.textContent = count;
+    }, 1000);
+}
 
-function typing(event) {
-    console.log(event.key);
-    let key = event.key;
+function start() {
+    isPlaying = true;
+    inputText = '';
+    futureText = 'dositan?hanasikikoka?';
+    progress_update();
+    timer();
+}
+
+function timer() {
+    timerId = setInterval(() => {
+        time += 1;
+        timeElement.textContent = (time / 1000).toFixed(2) + '秒';
+    }, 1)
+}
+
+function game(event) {
+    if (isPlaying) {
+        typing(event.key);
+        if (futureText.length == 0) {
+            console.log('クリア');
+            isPlaying = false;
+            clearInterval(timerId);
+        }
+    }
+}
+
+function typing(key) {
     if (key == futureText[0]) {
         inputText += key;
         futureText = futureText.slice(1);
