@@ -5,3 +5,12 @@ body {
 #game {
     border: 1px solid #000;
 }
+
+#progress {
+    display: flex;
+    justify-content: center;
+}
+
+#input-text {
+    color: #ff0000;
+}
