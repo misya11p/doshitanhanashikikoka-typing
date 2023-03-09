@@ -41,6 +41,7 @@ function display_game() {
 }
 
 function display_result() {
+    startButtonElement.style.display = 'block';
     gameElement.style.display = 'none';
     resultElement.style.display = 'block';
 }
@@ -89,7 +90,6 @@ function game(event) {
     if (isPlaying) {
         typing(event.key);
         if (futureText.length == 0) {
-            console.log('クリア');
             isPlaying = false;
             clearInterval(timerId);
             result();
