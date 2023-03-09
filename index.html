@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="base.css">
-    <title>どしたん？話聞こか？RTA</title>
+    <title>ドシハナRTA</title>
 </head>
 <body>
-    <h1>どしたん？話聞こか？RTA</h1>
+    <h1>どしたん？話聞こか？</h1>
+    <p>どしたん？話聞こか？をいかに早く打てるか競うゲームです。</p>
+    <p>タイピング速度を鍛え、ターゲットの女の子に1秒でも早くドシハナできるように頑張ってください。</p>
     <button type="button" onclick="count_down();">スタート</button>
     <p id="count-down"></p>
     <p id="time"></p>
@@ -19,6 +21,10 @@
             <p id="future-text" class="progress-text"></p>
         </div>
     </div>
-    <script type="text/javascript" src="index.js"></script>
+    <div id="result">
+        <p id="result-text"></p>
+        <a id="tweet-button" target="_blank" rel="noreferrer noopener">ツイートする</a>
+    </div>
 </body>
+<script type="text/javascript" src="index.js"></script>
 </html>

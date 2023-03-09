@@ -10,9 +10,17 @@ let countDownTimerId;
 let timeElement = document.getElementById('time');
 let time;
 let timerId;
+let timeText;
+let resultElement = document.getElementById('result-text');
+let tweetButtonElement = document.getElementById('tweet-button');
 
 window.addEventListener('keydown', game);
 
+
+function progress_update() {
+    inputTextElement.textContent = inputText;
+    futureTextElement.textContent = futureText;
+}
 
 function count_down() {
     clearInterval(timerId);
@@ -41,9 +49,10 @@ function start() {
 
 function timer() {
     timerId = setInterval(() => {
-        time += 1;
-        timeElement.textContent = (time / 1000).toFixed(2) + '秒';
-    }, 1)
+        time += 10;
+        timeText = (time / 1000).toFixed(2) + '秒';
+        timeElement.textContent = timeText;
+    }, 10)
 }
 
 function game(event) {
@@ -53,6 +62,7 @@ function game(event) {
             console.log('クリア');
             isPlaying = false;
             clearInterval(timerId);
+            result();
         }
     }
 }
@@ -82,7 +92,8 @@ function typing(key) {
     progress_update();
 }
 
-function progress_update() {
-    inputTextElement.textContent = inputText;
-    futureTextElement.textContent = futureText;
+function result() {
+    resultElement.textContent = '記録：' + timeText;
+    let tweetText = 'どしたん？話聞こか？を' + timeText + 'でタイピングしました';
+    tweetButtonElement.setAttribute("href","https://twitter.com/intent/tweet?text=" + tweetText + "&hashtags=ドシハナRTA" + "&url=https://rta.com");
 }
