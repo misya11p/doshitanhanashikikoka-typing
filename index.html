@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="base.css">
-    <title>ドシハナRTA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>どしたん？話聞こか？ Typing</title>
 </head>
 <body>
-    <h1>どしたん？話聞こか？</h1>
-    <p>どしたん？話聞こか？のタイピング速度を競うゲームです。</p>
-    <p>タイピング速度を鍛え、ターゲットの女の子に1秒でも早くドシハナできるように頑張ってください。</p>
-    <button id="start-button" type="button" onclick="count_down();">スタート</button>
-    <p id="count-down"></p>
-    <div id="game">
-        <p id="time"></p>
-        <p>どしたん？話聞こか？</p>
-        <div id="progress">
-            <p id="input-text" class="progress-text"></p>
-            <p id="future-text" class="progress-text"></p>
-        </div>
-        <button id="reset-button" type="button" onclick="reset();">辞める</button>
+    <div id="title" class="block">
+        <h1 class="title is-1 my-6">どしたん？話聞こか？</h1>
+        <p class="is-size-4"><span class="has-text-danger">どしたん？話聞こか？</span>のタイピング速度を競うゲームです。</p>
+        <p class="is-size-4">タイピング速度を鍛え、ターゲットの女の子に素早くドシハナできるように頑張ってください。</p>
     </div>
-    <div id="result">
-        <p id="result-text"></p>
-        <a id="tweet-button" target="_blank" rel="noreferrer noopener">ツイートする</a>
+    <div id="start" class="block">
+        <button id="start-button" class="button is-danger is-light is-size-4 my-6" type="button" onclick="count_down();">スタート</button>
+        <p id="count-down" class="is-size-1 my-6 has-text-danger"></p>
+    </div>
+    <div id="game" class="block px-0 column is-half is-offset-one-quarter">
+        <p id="time" class="is-size-3 my-3 has-text-danger"></p>
+        <p class="is-size-3 my-6">どしたん？話聞こか？</p>
+        <div id="progress" class="is-size-4 my-3">
+            <p id="input-text" class="progress-text has-text-danger"></p>
+            <p id="future-text" class="progress-text has-text-grey-light"></p>
+        </div>
+        <button id="reset-button" class="button is-danger is-light is-medium my-4" type="button" onclick="reset();">辞める</button>
+    </div>
+    <div id="result" class="block my-6">
+        <p id="result-text" class="is-size-1 has-text-danger"></p>
+        <a id="tweet-button" class="button is-link is-medium my-6 mx-3" target="_blank" rel="noreferrer noopener">ツイートする</a>
+        <button class="button is-danger is-medium my-6 mx-3" type="button" onclick="count_down();">もう1回</button>
     </div>
 </body>
 <script type="text/javascript" src="index.js"></script>
