@@ -141,5 +141,5 @@ function result() {
     display_result();
     resultTextElement.textContent = '記録：' + timeText + '秒';
     let tweetText = 'どしたん？話聞こか？を' + timeText + '秒でタイピングしました';
-    tweetButtonElement.setAttribute('href', 'https://twitter.com/intent/tweet?text=' + tweetText + '&hashtags=ドシハナRTA&url=https://rta.com');
+    tweetButtonElement.setAttribute('href', 'https://twitter.com/intent/tweet?text=' + tweetText + '&hashtags=どしたん話きこかタイピング&url=https://rta.com');
 }
